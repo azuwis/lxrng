@@ -1,5 +1,14 @@
 /* -*- mode: fundamental -*- */
 
+div#file_contents a {
+	text-decoration: none;
+	color: black;
+}
+
+div#file_contents a:hover {
+	text-decoration: underline;
+}
+
 body { 
 	font-family: sans-serif;
 	margin-top: 3px;
@@ -160,7 +169,7 @@ pre {
 
 a.line {
 	border: solid;
-	border-width: 1px;
+	border-width: 0px 1px 0px 0px;
 	border-color: #000000;
 	margin-left: 0px;
 	margin-right: 7px;
