@@ -17,6 +17,27 @@
 // The full GNU General Public License is included in this distribution
 // in the file called COPYING.
 
+var g_line;
+
+function highlight_line() {
+	if (g_line > 0) {
+		var links = document.getElementsByTagName('a');
+		var j = 0;
+		for (var i = 0; i < links.length; i++) {
+			if ((/\bline\b/).test(links[i].className)) {
+				j++;
+				if (j == g_line) {
+					var className = " " + links[i].className + " ";
+					if (className.indexOf(" highlight ") < 0) {
+						links[i].className += " highlight";
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+
 function popup_search(searchform) {
 	searchform = document.getElementById(searchform);
 	searchform.target = 'popup_' + window.name;
@@ -153,6 +174,7 @@ function check_hash_navigation() {
 }
 
 function load_file(tree, file, ver, line) {
+	g_line = line;
 	if (!use_ajax_navigation) {
 		return true;
 	}
@@ -169,6 +191,7 @@ function load_file(tree, file, ver, line) {
 			line = '#L' + line;
 		location.hash = location.hash.replace(/\#L\d+$/, '') + line;
 		check_hash_navigation();
+		highlight_line();
 		return false;
 	}
 
@@ -314,6 +337,8 @@ function load_file_finalize(content) {
 	ajaxify_link_handlers(document.links);
 
 	load_next_pending_fragment();
+
+	highlight_line();
 }
 
 function load_content() {

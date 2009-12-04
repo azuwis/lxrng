@@ -9,6 +9,10 @@ div#file_contents a:hover {
 	text-decoration: underline;
 }
 
+div#file_contents a.highlight {
+	color: #CE2828;
+}
+
 body { 
 	font-family: sans-serif;
 	margin-top: 3px;
