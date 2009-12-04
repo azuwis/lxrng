@@ -97,7 +97,7 @@ sub print_markedup_file {
     if ($cfile and -e "$cfile/.complete") {
 	print("<div id=\"file_contents\">");
 	while (-r "$cfile/$line") {
-	    print("<pre class=\"".($focus ? "done" : "pending").
+	    print("<pre class=\"prettyprint lang-c ".($focus ? "done" : "pending").
 		  "\" id=\"$shaid/$line\">");
 	    if ($focus) {
 		open(my $cache, '<', "$cfile/$line");
@@ -150,7 +150,7 @@ sub print_markedup_file {
     my $subst  = $lang->markuphandlers($context, $node, $markup);
 
     print("<div id=\"file_contents\">".
-	  "<pre class=\"".($focus ? "done" : "pending").
+	  "<pre class=\"prettyprint lang-c ".($focus ? "done" : "pending").
 	  "\" id=\"$shaid/0\">");
     while (1) {
 	my @frags = map { split(/(?<=\n)/, $_) }

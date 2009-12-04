@@ -49,7 +49,7 @@ sub make_format_newline {
 	$line++;
 	$nl = safe_html($nl);
 
-	return sprintf('%s<a href="%s#L%d" id="L%d" class="line" name="L%d">%4d</a>',
+	return sprintf('%s<a href="%s#L%d" id="L%d" class="line nocode" name="L%d">%4d</a>',
 		       $nl, $name, $line, $line, $line, $line);
     }
 }

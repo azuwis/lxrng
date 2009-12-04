@@ -257,6 +257,7 @@ function load_fragment_finalize(content) {
 
 //	if (location.hash)
 //		location.hash = location.hash;
+	//setTimeout("prettyPrint()", 0);
 }
 
 function load_file_finalize(content) {
@@ -314,6 +315,7 @@ function load_file_finalize(content) {
 	ajaxify_link_handlers(document.links);
 
 	load_next_pending_fragment();
+	setTimeout("prettyPrint()", 0);
 }
 
 function load_content() {
